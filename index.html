@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Ferrero — Report di Sostenibilità</title>
+    <meta
+      name="description"
+      content="Scarica il report di sostenibilità Ferrero (2024)."
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="header-container">
+      <div class="container">
+        <h1>Ferrero — Report di Sostenibilità (FY 2023/24)</h1>
+        <p class="subtitle">
+          Scarica il documento ufficiale e consulta i KPI principali.
+        </p>
+      </div>
+    </header>
+    <main class="container" id="main" role="main">
+      <!-- Download container -->
+      <section class="download-section" aria-label="Documenti da scaricare">
+        <p>
+          Qui sotto puoi scaricare il PDF ufficiale del report di sostenibilità
+          (FY 2023/24).
+        </p>
+        <div class="download-container">
+          <!-- Bottone report 2024 -->
+          <a
+            class="downloadBtn"
+            href="ferrero-2024-sustainability-report-final.pdf"
+            download="Ferrero_Sustainability_Report_2024.pdf"
+            aria-label="Scarica Ferrero Sustainability Report 2024"
+          >
+            <!-- Icona download -->
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+              focusable="false"
+            >
+              <path
+                d="M5 20h14v-2H5v2zm7-18v10l4-4 1.4 1.4L12 16 6.6 9.4 8 8l4 4V2z"
+              />
+            </svg>
+            <span>Scarica Report 2024 (PDF)</span>
+          </a>
+        </div>
+        <p class="note">
+          Fonte: Ferrero Sustainability Report 2024 (FY 2023/24).
+        </p>
+      </section>
+      <!-- Kpi container -->
+      <section class="kpi-section" aria-label="KPI">
+        <h3>KPI principali (FY 2023/24)</h3>
+
+        <div class="carousel-container">
+          <button class="carouselBtn prev" aria-label="Precedente">
+            &#10094;
+          </button>
+
+          <div class="kpi-container">
+            <article class="kpi">
+              <h4>GWP totale</h4>
+              <p class="value">7.603.720 tCO₂eq</p>
+            </article>
+            <article class="kpi">
+              <h4>Packaging progettato riciclabile</h4>
+              <p class="value">92.1%</p>
+            </article>
+            <article class="kpi">
+              <h4>Tracciabilità nocciole</h4>
+              <p class="value">93.92%</p>
+            </article>
+            <article class="kpi">
+              <h4>Olio di palma deforestation-free</h4>
+              <p class="value">97%</p>
+            </article>
+          </div>
+          <button class="carouselBtn next" aria-label="Successivo">
+            &#10095;
+          </button>
+        </div>
+      </section>
+
+      <!-- Note -->
+      <section class="note-section" aria-label="Note">
+        <h3>Note</h3>
+        <p>
+          I dati provengono dall'Annex III del Ferrero Sustainability Report
+          2024 (FY 2023/24). Alcuni KPI sono stati oggetto di restatement,
+          ripresi dall'anno precedente e aggiornati, per la variazione del
+          perimetro e delle attività aziendali; consulta "About this report" per
+          dettagli.
+        </p>
+      </section>
+    </main>
+    <footer class="footer">
+      <div class="container">
+        <p>
+          Università Telematica Pegaso — CdS Informatica per le Aziende Digitali
+          L-31 — Ferrero (Sustainability Report 2024) — Luca Vicari.
+        </p>
+      </div>
+    </footer>
+
+    <script>
+      const carousel = document.querySelector(".kpi-container");
+      const cards = document.querySelectorAll(".kpi");
+      const nextBtn = document.querySelector(".carouselBtn.next");
+      const prevBtn = document.querySelector(".carouselBtn.prev");
+
+      let currentIndex = 0;
+      let autoScroll;
+
+      function showCard(index) {
+        carousel.style.transform = `translateX(-${index * 100}%)`;
+      }
+
+      function nextCard() {
+        currentIndex = (currentIndex + 1) % cards.length;
+        showCard(currentIndex);
+      }
+
+      function prevCard() {
+        currentIndex = (currentIndex - 1 + cards.length) % cards.length;
+        showCard(currentIndex);
+      }
+
+      nextBtn.addEventListener("click", nextCard);
+      prevBtn.addEventListener("click", prevCard);
+
+      function startAutoScroll() {
+        autoScroll = setInterval(nextCard, 3000);
+      }
+
+      function stopAutoScroll() {
+        clearInterval(autoScroll);
+      }
+
+      carousel.addEventListener("mouseenter", stopAutoScroll);
+      carousel.addEventListener("mouseleave", startAutoScroll);
+
+      showCard(currentIndex);
+      startAutoScroll();
+    </script>
+  </body>
+</html>
