@@ -225,4 +225,20 @@ body {
   .carouselBtn.next {
     right: 0.25rem;
   }
+  .location-grid {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "b"
+      "a"
+      "c"
+      "d"
+      "f"
+      "g"
+      "i";
+  }
+
+  .location-grid > img:nth-child(1) {
+    width: 80%;
+    margin: 0 auto;
+  }
 }
