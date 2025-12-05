@@ -12,6 +12,10 @@
   --max-width: 980px;
   --radius: 12px;
 }
+a {
+  color: var(--text);
+  text-decoration: none;
+}
 body {
   font-family: system-ui, "Segoe UI", "Helvetica Neue", Arial;
   background: var(--bg);
@@ -23,6 +27,7 @@ body {
   max-width: var(--max-width);
   margin: 0 auto;
   padding: 1rem;
+  text-align: center;
 }
 /* Header */
 .header-container {
@@ -30,6 +35,12 @@ body {
   border-bottom: 1px solid rgba(0, 0, 0, 0.05);
   padding: 1.25rem 0;
   margin-bottom: 1rem;
+  display: flex;
+}
+.logo-container {
+  display: flex;
+  align-items: center;
+  margin-right: 1rem;
 }
 .header-container h1 {
   font-size: 1.5rem;
@@ -40,6 +51,11 @@ body {
   font-size: 0.95rem;
 }
 /* Download button */
+.download-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 .download-container {
   display: flex;
   flex-wrap: wrap;
@@ -136,6 +152,46 @@ body {
   font-weight: 700;
   color: var(--text);
 }
+/* Locations */
+.location-section {
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.location-grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-rows: repeat(3, 1fr);
+  grid-template-areas:
+    "a b c"
+    "d b f"
+    "g b i";
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.location-grid > img:nth-child(1) {
+  grid-area: b;
+  border-radius: var(--radius);
+  width: 100%;
+}
+
+.location-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.logo {
+  max-width: 25px;
+  height: auto;
+  display: block;
+  margin: 0 10px;
+}
+.location {
+  font-weight: bold;
+}
+
 /* Footer */
 .footer {
   margin-top: 2rem;
@@ -144,6 +200,16 @@ body {
   color: var(--muted);
   font-size: 0.9rem;
 }
+
+.githubLink-container > a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+  color: var(--muted);
+  font-weight: bold;
+}
+
 /* Responsive margins */
 @media (max-width: 600px) {
   .downloadBtn {
